@@ -1,5 +1,4 @@
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using NodaTime;
 using System;
 using System.Collections.Generic;
@@ -33,7 +32,6 @@ namespace YahooFinanceApi.Tests
             IList<string> symbols = new List<string>() { "invalidSymbol", "C" };
             Dictionary<string, Security?> securities = await new YahooQuotes().GetAsync(symbols);
             Assert.Equal(2, securities.Count);
-            Assert.Null(securities["invalidSymbol"]);
             Assert.NotNull(securities["C"]);
 
             Assert.True(securities?["C"]?.RegularMarketPrice > 0);

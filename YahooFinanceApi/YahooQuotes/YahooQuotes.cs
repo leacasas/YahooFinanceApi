@@ -60,6 +60,9 @@ namespace YahooFinanceApi
             if (quoteExpando.error != null)
                 throw new InvalidDataException($"GetAsync error: {quoteExpando.error}");
 
+            if (quoteExpando.result.Count <= 0)
+                return null;
+
             IDictionary<string, dynamic> dictionary = quoteExpando.result[0];
 
             var security = new Security(dictionary);
