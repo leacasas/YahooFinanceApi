@@ -131,7 +131,7 @@ namespace YahooFinanceApi
 
                 while (csvReader.Read())
                 {
-                    var tick = TickParser.Parse<ITick>(csvReader.Context.Record, IgnoreEmptyRows);
+                    var tick = TickParser.Parse<ITick>(csvReader.Context.Record[0].Split(','), IgnoreEmptyRows);
                     if (tick != null)
                         ticks.Add(tick);
                 }

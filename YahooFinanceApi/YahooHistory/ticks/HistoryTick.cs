@@ -15,10 +15,7 @@ namespace YahooFinanceApi
         public long Volume { get; }
 
         private HistoryTick(string[] row)
-        {
-            if (row.Length == 1)
-                row = row[0].Split(',');
-            
+        {            
             Date = row[0].ToLocalDate();
             Open = row[1].ToDecimal();
             High = row[2].ToDecimal();

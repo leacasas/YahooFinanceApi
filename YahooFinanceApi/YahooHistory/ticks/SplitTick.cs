@@ -14,11 +14,11 @@ namespace YahooFinanceApi
         {
             Date = row[0].ToLocalDate();
 
-            var split = row[1].Split('/');
+            var split = row[1].Split(':');
             if (split.Length == 2)
             {
-                BeforeSplit = split[0].ToDecimal();
-                AfterSplit = split[1].ToDecimal();
+                BeforeSplit = split[1].ToDecimal();
+                AfterSplit = split[0].ToDecimal();
             }
         }
 
